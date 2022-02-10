@@ -1,0 +1,48 @@
+.tagWrapper {
+  border: 1px grey solid;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  height: max-content;
+  width: max-content;
+}
+
+.tagItem {
+  display: flex;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  background-color: blueviolet;
+  color: white;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.tagItem label{
+  margin-right: 5px;
+}
+
+.tagItem button{
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.tagInput {
+  float: left;
+  border: none;
+  height: auto;
+}
+.tagInput input {
+  border: none;
+  height: 100%;
+}
+
+.tagInput input:active {
+  border: none;
+  outline: none;
+}
+.tagInput input:focus {
+  outline: none;
+  border: none;
+}

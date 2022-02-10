@@ -1,0 +1,49 @@
+.tabHeader {
+  text-align: left;
+}
+
+.tabMenu {
+  list-style: none;
+  position: relative;
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+
+  padding: 0;
+}
+
+.tabMenu li {
+  float: left;
+  position: relative;
+  width: 20%;
+  cursor: pointer;
+  height: 30px;
+  background-color: rgb(218, 218, 218);
+}
+
+.tabMenuActive {
+  background-color: blueviolet !important;
+  color: white;
+}
+
+.tabMenu li:hover {
+  background-color: rgb(96, 19, 168) !important;
+  color: white;
+}
+
+.tabMenu li:active {
+  background-color: rgb(71, 14, 124) !important;
+  color: white;
+}
+
+.tabContents {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabContentsHidden {
+  display: none;
+}
