@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Tab from "./component/Tab";
+import Tab from "./components/Tab";
 
 function App() {
   return (
