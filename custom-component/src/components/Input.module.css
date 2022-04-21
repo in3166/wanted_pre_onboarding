@@ -12,6 +12,12 @@
   height: 35px;
   width: 300px;
   border-radius: 5px;
+
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
 }
 
 .form input:focus {
@@ -31,6 +37,13 @@
 
 .check {
   position: absolute;
+}
+
+.visibleText {
+  position: relative;
+  left: 260px;
+  top: -30px;
+  cursor: pointer;
 }
 
 .check:before {

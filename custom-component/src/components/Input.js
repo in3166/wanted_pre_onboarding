@@ -6,19 +6,20 @@ const regEmail =
 const emailValidator = (value) => regEmail.test(value);
 
 const Input = (props) => {
-  const [Name, setName] = useState("");
-  const [Age, setAge] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [ShowPassword, setShowPassword] = useState(false);
 
   const [BlurEmail, setBlurEmail] = useState(false);
   const [EmailTouched, setEmailTouched] = useState(false);
 
   const changeEmailHandler = (e) => {
-    setName(e.target.value);
+    setEmail(e.target.value);
     setEmailTouched(true);
   };
 
   const changePasswordHandler = (e) => {
-    setAge(e.target.value);
+    setPassword(e.target.value);
   };
 
   const onBlurEmail = (e) => {
@@ -27,6 +28,10 @@ const Input = (props) => {
     } else {
       setBlurEmail(false);
     }
+  };
+
+  const changeVisiblePassword = () => {
+    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -40,7 +45,7 @@ const Input = (props) => {
               onChange={changeEmailHandler}
               onBlur={onBlurEmail}
               placeholder="E-mail"
-              value={Name}
+              value={Email}
             />
             <label
               className={
@@ -57,12 +62,16 @@ const Input = (props) => {
 
         <div className={styles.formInput}>
           <label>Password</label>
+
           <input
-            type="password"
+            type={ShowPassword ? "text" : "password"}
             onChange={changePasswordHandler}
             placeholder="Password"
-            value={Age}
+            value={Password}
           />
+          <label className={styles.visibleText} onClick={changeVisiblePassword}>
+            {!ShowPassword ? "SHOW" : "HIDE"}
+          </label>
         </div>
       </form>
     </>
