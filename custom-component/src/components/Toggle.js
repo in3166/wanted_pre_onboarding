@@ -11,28 +11,34 @@ const Toggle = (props) => {
   return (
     <>
       <label className={styles.switch}>
+        <input
+          type="checkbox"
+          checked={value}
+          id="toggleSwitch"
+          onChange={clickToggleHandler}
+        />
+        <span className={styles.slider}></span>
         <label
           className={
             !value
-              ? `${styles.textActive} ${styles.textLeft}`
-              : styles.textLeft
+              ? `${styles.textActive} ${styles.textLeft} ${styles.text}`
+              : `${styles.textLeft} ${styles.text}`
           }
+          htmlFor="toggleSwitch"
         >
           기본
         </label>
         <label
           className={
             value
-              ? `${styles.textActive} ${styles.textRight}`
-              : styles.textRight
+              ? `${styles.textActive} ${styles.text} ${styles.textRight}`
+              : `${styles.textRight} ${styles.text}`
           }
+          htmlFor="toggleSwitch"
         >
           상세
         </label>
-        <input type="checkbox" value={value} onClick={clickToggleHandler} />
-        <span className={styles.slider}></span>
       </label>
-      <div></div>
     </>
   );
 };

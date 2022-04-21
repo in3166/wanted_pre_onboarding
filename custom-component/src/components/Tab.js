@@ -10,21 +10,34 @@ const Tab = (props) => {
   };
 
   return (
-    <div className={styles.tab}>
+    <div className={styles.wrapper}>
+      <header>Tab Menu</header>
+      <hr />
+      <input type="radio" id="input" name="tab-control" checked={value === 1} onChange={() => changeTabHandler(1)}/>
+      <input
+        type="radio"
+        id="toggle"
+        name="tab-control"
+        checked={value === 2}
+        onChange={() => changeTabHandler(2)}
+      />
       <ul className={styles.tabMenu}>
         <li
           className={value === 1 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(1)}
         >
-          Input
+          <label htmlFor="input">Input</label>
         </li>
         <li
           className={value === 2 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(2)}
         >
-          Toggle
+          <label htmlFor="toggle">Toggle</label>
         </li>
       </ul>
+      <div className={styles.slider}>
+        <div className={styles.indicator}></div>
+      </div>
 
       <div
         className={
