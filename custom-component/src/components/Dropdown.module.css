@@ -1,0 +1,49 @@
+.symbol {
+    border: 1px solid rgb(190, 190, 190);
+    min-width: 200px;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchInput {
+    display: flex;
+
+}
+
+.list {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+    border: 1px rgb(190, 190, 190) solid;
+    border-radius: 5px;
+}
+
+.list li {
+    padding: 10px;
+    text-align: left;
+}
+
+.list li:not(:first-child) {
+    cursor: pointer;
+    padding-left: 35px;
+}
+
+.list li:not(:first-child):hover {
+    background-color: rgb(232, 232, 232);
+}
+
+.list li:first-child {
+    border-bottom: 1px rgb(190, 190, 190) solid;
+}
+
+.list li input {
+    border: none;
+    width: 100%;
+}
+
+.list li input:focus {
+    outline: none;
+}

@@ -70,7 +70,11 @@ const Input = (props) => {
             value={Password}
           />
           <label className={styles.visibleText} onClick={changeVisiblePassword}>
-            {!ShowPassword ? "SHOW" : "HIDE"}
+            {!ShowPassword ? (
+              <i class="fa fa-eye icon fa-lg"></i>
+            ) : (
+              <i class="fa fa-eye-slash icon fa-lg"></i>
+            )}
           </label>
         </div>
       </form>
