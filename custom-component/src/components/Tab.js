@@ -13,7 +13,6 @@ const Tab = (props) => {
     setValue(value);
     setSlideStyle({
       left: `${25 * value}%`,
-      transition: `all 0.2s`,
     });
   };
 
@@ -26,25 +25,25 @@ const Tab = (props) => {
           className={value === 0 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(0)}
         >
-          Input
+          Toggle
         </li>
         <li
           className={value === 1 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(1)}
         >
-          Toggle
+          Slider
         </li>
         <li
           className={value === 2 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(2)}
         >
-          Dropdwon
+          Input
         </li>
         <li
           className={value === 3 ? `${styles.tabMenuActive}` : ""}
           onClick={() => changeTabHandler(3)}
         >
-          Slider
+          Dropdwon
         </li>
       </ul>
 
@@ -59,7 +58,7 @@ const Tab = (props) => {
             : `${styles.tabContents} ${styles.tabContentsHidden}`
         }
       >
-        <Input />
+        <Toggle />
       </div>
       <div
         className={
@@ -68,7 +67,7 @@ const Tab = (props) => {
             : `${styles.tabContents} ${styles.tabContentsHidden}`
         }
       >
-        <Toggle />
+        <Slider />
       </div>
       <div
         className={
@@ -77,7 +76,7 @@ const Tab = (props) => {
             : `${styles.tabContents} ${styles.tabContentsHidden}`
         }
       >
-        <Dropdown />
+        <Input />
       </div>
       <div
         className={
@@ -86,7 +85,7 @@ const Tab = (props) => {
             : `${styles.tabContents} ${styles.tabContentsHidden}`
         }
       >
-        <Slider />
+        <Dropdown />
       </div>
     </div>
   );

@@ -44,32 +44,33 @@ const Dropdown = () => {
       <div onClick={changeOpenListHandler} className={styles.symbol}>
         <label>{selectedSymbol}</label>
         <label>
-          <i class="fa fa-caret-down icon"></i>
+          <i className="fa fa-caret-down icon"></i>
         </label>
       </div>
-      {OpenList && (
-        <>
-          <ul className={styles.list}>
-            <li className={styles.searchInput}>
-              <label htmlFor="search">
-                <i class="fa fa-search icon"></i>
-              </label>
-              <input
-                type="text"
-                id="search"
-                value={SearchText}
-                onChange={(e) => changeSearchTextHandler(e)}
-                placeholder="Search Symbol"
-              />
-            </li>
-            {FilteredItems.map((value, index) => (
-              <li key={value} onClick={() => selectHandler(value)}>
-                {value}
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
+
+      <ul
+        className={
+          OpenList ? `${styles.list} ${styles.listActive}` : `${styles.list}`
+        }
+      >
+        <li className={styles.searchInput}>
+          <label htmlFor="search">
+            <i className="fa fa-search icon"></i>
+          </label>
+          <input
+            type="text"
+            id="search"
+            value={SearchText}
+            onChange={(e) => changeSearchTextHandler(e)}
+            placeholder="Search Symbol"
+          />
+        </li>
+        {FilteredItems.map((value, index) => (
+          <li key={value} onClick={() => selectHandler(value)}>
+            {value}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

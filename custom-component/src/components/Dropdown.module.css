@@ -10,7 +10,10 @@
 
 .searchInput {
     display: flex;
+}
 
+.searchInput i {
+    padding: 5px;
 }
 
 .list {
@@ -19,6 +22,18 @@
     padding: 0;
     border: 1px rgb(190, 190, 190) solid;
     border-radius: 5px;
+    animation: slideout 1s;
+    transition: all 0.3s ease-out;
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.listActive {
+    max-height: 300px;
+    visibility: visible;
+    opacity: 1;
 }
 
 .list li {

@@ -61,3 +61,8 @@
 .checkActive:before {
   background-color: rgb(59, 157, 149);
 }
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}

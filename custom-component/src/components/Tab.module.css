@@ -68,8 +68,7 @@
 }
 
 .tabContents {
-  padding: 50px;
-  width: 90%;
+  padding: 30px 0px 20px 0px;
   display: flex;
   justify-content: center;
   flex-direction: column;

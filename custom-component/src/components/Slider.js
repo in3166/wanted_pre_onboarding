@@ -34,7 +34,10 @@ const Slider = () => {
 
         <ul className={styles.slots}>
           {steps.map((value) => (
-            <li className={Num >= value && `${styles.activeSlot}`}></li>
+            <li
+              key={value}
+              className={Num >= value ? `${styles.activeSlot}` : ""}
+            ></li>
           ))}
         </ul>
         <div className={styles.progress} style={ProgressLine}></div>
@@ -42,7 +45,9 @@ const Slider = () => {
 
       <ul className={styles.steps}>
         {steps.map((value) => (
-          <li onClick={() => setStepsHanlder(value)}>{value} %</li>
+          <li key={value} onClick={() => setStepsHanlder(value)}>
+            {value} %
+          </li>
         ))}
       </ul>
     </div>
