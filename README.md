@@ -2,6 +2,8 @@
 
 프리온보딩 선발 과제
 
+https://user-images.githubusercontent.com/45654988/164459250-66a17a6b-f48b-49eb-9056-83654bd225b6.mp4
+
 <br/>
 
 ## 1. Toggle
