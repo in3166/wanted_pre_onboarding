@@ -22,8 +22,8 @@ input[type=range] {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: rgb(64, 207, 186);
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     border: 3px solid white;
     border-radius: 50%;
     cursor: pointer;
@@ -31,17 +31,31 @@ input[type="range"]::-webkit-slider-thumb {
     position: relative;
 }
 
-.progress {
-    background-color: rgb(64, 207, 186) !important;
-    color: rgb(10, 11, 12);
+.meterBar {
+    width: 100%;
+    /* -webkit-appearance: none;
+    background-color: rgb(64, 207, 186); */
     position: relative;
     top: -21px;
-    height: 0.3rem;
-    width: 0;
-    left: 0;
+    height: 0.75rem;
+    /* display: block; */
     pointer-events: none;
-    display: block;
+}
 
+meter::-webkit-meter-bar {
+    background: none;
+    background-color: transparent;
+    box-shadow: 0 5px 5px -5px #333 inset;
+    box-shadow: 0px 0px 0px 0px transparent;
+    outline: none;
+    border: none;
+}
+
+meter::-webkit-meter-optimum-value {
+    background-image: linear-gradient(0deg,
+            rgb(64, 207, 186) 100%,
+            transparent 100%);
+    background-size: 100% 100%;
 }
 
 .slots {
@@ -54,7 +68,7 @@ input[type="range"]::-webkit-slider-thumb {
     flex-wrap: wrap;
     position: relative;
     pointer-events: none;
-    top: -13px;
+    top: -33px;
 }
 
 .slots li {

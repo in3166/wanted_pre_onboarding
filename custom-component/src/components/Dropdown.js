@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { AiFillCaretDown, AiOutlineSearch } from "react-icons/ai";
 import styles from "./Dropdown.module.css";
 
-const Dropdown = () => {
-  const [Items, setItems] = useState([
-    "All Symbols",
-    "BTCUSD.PERP",
-    "ETHUSD.PERP",
-    "BCHUSD.PERP",
-    "10000DOEF.PERP",
-  ]);
+const ITEMS = [
+  "All Symbols",
+  "BTCUSD.PERP",
+  "ETHUSD.PERP",
+  "BCHUSD.PERP",
+  "10000DOEF.PERP",
+];
 
-  const [FilteredItems, setFilteredItems] = useState(Items);
-  const [selectedSymbol, setselectedSymbol] = useState(Items[0]);
+const Dropdown = () => {
+  const [FilteredItems, setFilteredItems] = useState(ITEMS);
+  const [selectedSymbol, setselectedSymbol] = useState(ITEMS[0]);
   const [SearchText, setSearchText] = useState("");
   const [OpenList, setOpenList] = useState(false);
 
@@ -24,14 +25,14 @@ const Dropdown = () => {
   const changeOpenListHandler = () => {
     setOpenList((prev) => !prev);
     setSearchText("");
-    setFilteredItems(Items);
+    setFilteredItems(ITEMS);
   };
 
   const changeSearchTextHandler = (e) => {
-    const inputText = e.target.value;
+    const inputText = e.currentTarget.value;
     setSearchText(inputText);
     setFilteredItems(
-      Items.filter((value) => {
+      ITEMS.filter((value) => {
         if (value.toUpperCase().indexOf(inputText.toUpperCase()) === -1)
           return false;
         else return true;
@@ -44,7 +45,7 @@ const Dropdown = () => {
       <div onClick={changeOpenListHandler} className={styles.symbol}>
         <label>{selectedSymbol}</label>
         <label>
-          <i className="fa fa-caret-down icon"></i>
+          <AiFillCaretDown />
         </label>
       </div>
 
@@ -55,7 +56,7 @@ const Dropdown = () => {
       >
         <li className={styles.searchInput}>
           <label htmlFor="search">
-            <i className="fa fa-search icon"></i>
+            <AiOutlineSearch size={22} />
           </label>
           <input
             type="text"

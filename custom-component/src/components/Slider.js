@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import styles from "./Slider.module.css";
 
-const steps = [1, 25, 50, 75, 100];
+const STEPS = [1, 25, 50, 75, 100];
 
 const Slider = () => {
-  const [Num, setNum] = useState(1);
-  const [ProgressLine, setProgressLine] = useState({});
+  const [Number, setNumber] = useState(1);
 
   const changeRangeHandler = (e) => {
     e.preventDefault();
-    setNum(e.target.value);
-    setProgressLine({ width: `${e.target.value}%` });
+    setNumber(e.target.value);
   };
 
   const setStepsHanlder = (value) => {
-    setNum(value);
-    setProgressLine({ width: `${value}%` });
+    setNumber(value);
   };
+
   return (
     <div className={styles.wrapper}>
-      <label>{Num} %</label>
+      <label>{Number} %</label>
 
       <div>
         <input
@@ -27,24 +25,26 @@ const Slider = () => {
           onChange={(e) => changeRangeHandler(e)}
           min={1}
           max={100}
-          value={Num}
+          step={1}
+          value={Number}
           className={styles.bar}
           id="range"
         />
 
+        <meter min="0" max="100" className={styles.meterBar} value={Number} />
+
         <ul className={styles.slots}>
-          {steps.map((value) => (
+          {STEPS.map((value) => (
             <li
               key={value}
-              className={Num >= value ? `${styles.activeSlot}` : ""}
+              className={Number >= value ? `${styles.activeSlot}` : ""}
             ></li>
           ))}
         </ul>
-        <div className={styles.progress} style={ProgressLine}></div>
       </div>
 
       <ul className={styles.steps}>
-        {steps.map((value) => (
+        {STEPS.map((value) => (
           <li key={value} onClick={() => setStepsHanlder(value)}>
             {value} %
           </li>

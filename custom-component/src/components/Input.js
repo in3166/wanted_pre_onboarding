@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Input.module.css";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-const regEmail =
-  /^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-const emailValidator = (value) => regEmail.test(value);
+const REGEX_EMAIL =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailValidator = (value) => REGEX_EMAIL.test(value);
 
 const Input = (props) => {
   const [Email, setEmail] = useState("");
@@ -14,16 +15,16 @@ const Input = (props) => {
   const [EmailTouched, setEmailTouched] = useState(false);
 
   const changeEmailHandler = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.currentTarget.value);
     setEmailTouched(true);
   };
 
   const changePasswordHandler = (e) => {
-    setPassword(e.target.value);
+    setPassword(e.currentTarget.value);
   };
 
   const onBlurEmail = (e) => {
-    if (emailValidator(e.target.value)) {
+    if (emailValidator(e.currentTarget.value)) {
       setBlurEmail(true);
     } else {
       setBlurEmail(false);
@@ -70,11 +71,7 @@ const Input = (props) => {
             value={Password}
           />
           <label className={styles.visibleText} onClick={changeVisiblePassword}>
-            {!ShowPassword ? (
-              <i className="fa fa-eye icon fa-lg"></i>
-            ) : (
-              <i className="fa fa-eye-slash icon fa-lg"></i>
-            )}
+            {!ShowPassword ? <AiOutlineEye size={22} /> : <AiOutlineEyeInvisible size={22}/>}
           </label>
         </div>
       </form>
