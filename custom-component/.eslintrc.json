@@ -21,10 +21,7 @@
     "arrow-body-style": "off",
     "semi": ["warn", "never"],
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".js", ".jsx"] }
-    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/jsx-indent": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "warn",
@@ -45,20 +42,9 @@
     // "max-lines": ["warn", 150],
     "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
 
     "no-shadow": "off",
     "no-unused-expressions": ["warn"],
-    "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/unbound-method": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-unsafe-member-access": "off",
-    "@typescript-eslint/no-unsafe-assignment": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { "argsIgnorePattern": "^_" }
-    ],
     "prefer-const": ["warn"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "lines-between-class-members": "off",

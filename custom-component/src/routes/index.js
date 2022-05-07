@@ -1,5 +1,5 @@
 import { LogoImage } from '../assets/svgs'
-import Tab from '../componenets/Tab'
+import Tab from '../components/Tab'
 import styles from './Routes.module.scss'
 
 function App() {
