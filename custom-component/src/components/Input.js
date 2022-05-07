@@ -1,82 +1,82 @@
-import React, { useState } from "react";
-import styles from "./Input.module.css";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import React, { useState } from 'react'
+import styles from './Input.module.scss'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const REGEX_EMAIL =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const emailValidator = (value) => REGEX_EMAIL.test(value);
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+const emailValidator = (value) => REGEX_EMAIL.test(value)
 
-const Input = (props) => {
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [ShowPassword, setShowPassword] = useState(false);
+function Input(props) {
+  const [Email, setEmail] = useState('')
+  const [Password, setPassword] = useState('')
+  const [ShowPassword, setShowPassword] = useState(false)
 
-  const [BlurEmail, setBlurEmail] = useState(false);
-  const [EmailTouched, setEmailTouched] = useState(false);
+  const [BlurEmail, setBlurEmail] = useState(false)
+  const [EmailTouched, setEmailTouched] = useState(false)
 
   const changeEmailHandler = (e) => {
-    setEmail(e.currentTarget.value);
-    setEmailTouched(true);
-  };
+    setEmail(e.currentTarget.value)
+    setEmailTouched(true)
+  }
 
   const changePasswordHandler = (e) => {
-    setPassword(e.currentTarget.value);
-  };
+    setPassword(e.currentTarget.value)
+  }
 
   const onBlurEmail = (e) => {
     if (emailValidator(e.currentTarget.value)) {
-      setBlurEmail(true);
+      setBlurEmail(true)
     } else {
-      setBlurEmail(false);
+      setBlurEmail(false)
     }
-  };
+  }
 
   const changeVisiblePassword = () => {
-    setShowPassword((prev) => !prev);
-  };
+    setShowPassword((prev) => !prev)
+  }
 
   return (
-    <>
-      <form className={styles.form}>
-        <div className={styles.formInput}>
-          <label>E-mail</label>
-          <div>
-            <input
-              type="email"
-              onChange={changeEmailHandler}
-              onBlur={onBlurEmail}
-              placeholder="E-mail"
-              value={Email}
-            />
-            <label
-              className={
-                BlurEmail && EmailTouched
-                  ? `${styles.check} ${styles.checkActive}`
-                  : `${styles.check} `
-              }
-            ></label>
-          </div>
-          {!BlurEmail && EmailTouched && (
-            <label className={styles.error}>Invalid e-mail address.</label>
-          )}
-        </div>
-
-        <div className={styles.formInput}>
-          <label>Password</label>
-
+    <form className={styles.form}>
+      <div className={styles.formInputWrapper}>
+        <label htmlFor='email'>E-mail</label>
+        <div>
           <input
-            type={ShowPassword ? "text" : "password"}
-            onChange={changePasswordHandler}
-            placeholder="Password"
-            value={Password}
+            type='email'
+            id='email'
+            onChange={changeEmailHandler}
+            onBlur={onBlurEmail}
+            placeholder='E-mail'
+            value={Email}
           />
-          <label className={styles.visibleText} onClick={changeVisiblePassword}>
-            {!ShowPassword ? <AiOutlineEye size={22} /> : <AiOutlineEyeInvisible size={22}/>}
-          </label>
+          <label
+            htmlFor='email'
+            className={BlurEmail && EmailTouched ? `${styles.check} ${styles.checkActive}` : `${styles.check} `}
+          />
         </div>
-      </form>
-    </>
-  );
-};
+        {!BlurEmail && EmailTouched && (
+          <label htmlFor='email' className={styles.error}>
+            Invalid e-mail address.
+          </label>
+        )}
+      </div>
 
-export default Input;
+      <div className={styles.formInputWrapper}>
+        <label htmlFor='password'> Password</label>
+
+        <input
+          id='password'
+          type={ShowPassword ? 'text' : 'password'}
+          onChange={changePasswordHandler}
+          placeholder='Password'
+          value={Password}
+        />
+
+        <button type='button' className={styles.visibleIcon} onClick={changeVisiblePassword}>
+          {!ShowPassword ? <AiOutlineEye size={22} /> : <AiOutlineEyeInvisible size={22} />}
+        </button>
+      </div>
+    </form>
+  )
+}
+
+export default Input

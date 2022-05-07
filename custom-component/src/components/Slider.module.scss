@@ -1,0 +1,115 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.sliderWrapper {
+  position: relative;
+  margin: 1.6rem;
+}
+
+.bar {
+  width: 100%;
+  height: 0.3rem;
+}
+
+input[type='range'] {
+  position: relative;
+  width: 100%;
+  height: 0.3rem;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background-color: rgb(205, 205, 205);
+  border-radius: 10px;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    z-index: 999999;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: colors.$SLIDER_INPUT;
+    border: 3px solid colors.$SLIDER_INPUT;
+    border-radius: 50%;
+    -webkit-appearance: none;
+  }
+}
+
+.meterBar {
+  position: absolute;
+  top: 4.6px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0.75rem;
+  pointer-events: none;
+
+  &::-webkit-meter-bar {
+    background: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 5px -5px #333333 inset;
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  &::-webkit-meter-optimum-value {
+    background-image: linear-gradient(0deg, colors.$SLIDER_INPUT 100%, transparent 100%);
+    background-size: 100% 100%;
+  }
+}
+
+.slots {
+  position: absolute;
+  top: 5px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  pointer-events: none;
+
+  li {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background-color: colors.$GRAYD;
+    border-radius: 50%;
+  }
+}
+
+.activeSlot {
+  background-color: colors.$SLIDER_INPUT !important;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+  list-style: none;
+
+  li {
+    padding: 0 7px 2px 6px;
+    color: colors.$GRAYA;
+    cursor: pointer;
+    background-color: colors.$GRAYD;
+    border-radius: 30px;
+
+    &:hover {
+      color: colors.$GRAYD;
+      background-color: colors.$SLIDER_STEPS;
+    }
+  }
+}

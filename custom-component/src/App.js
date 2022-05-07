@@ -1,18 +1,20 @@
-import "./App.css";
-import Tab from "./components/Tab";
+import { LogoImage } from './assets/svgs'
+import './App.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h3>프리온보딩 프론트엔드 코스 - 선발 과제</h3>
+    <div className='app'>
+      <header className='appHeader'>
+        <LogoImage className='appLogo' alt='logo' />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a className='appLink' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
+          Learn React
+        </a>
       </header>
-      
-      <main className="App-main">
-        <Tab />
-      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

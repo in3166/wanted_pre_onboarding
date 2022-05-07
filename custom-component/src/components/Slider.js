@@ -1,57 +1,55 @@
-import React, { useState } from "react";
-import styles from "./Slider.module.css";
+import React, { useState } from 'react'
+import styles from './Slider.module.scss'
 
-const STEPS = [1, 25, 50, 75, 100];
+const STEPS = [1, 25, 50, 75, 100]
 
-const Slider = () => {
-  const [Number, setNumber] = useState(1);
+function Slider() {
+  const [Number, setNumber] = useState(1)
 
   const changeRangeHandler = (e) => {
-    e.preventDefault();
-    setNumber(e.target.value);
-  };
+    setNumber(e.currentTarget.value)
+  }
 
   const setStepsHanlder = (value) => {
-    setNumber(value);
-  };
+    setNumber(value)
+  }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <label>{Number} %</label>
 
-      <div>
+      <div className={styles.sliderWrapper}>
         <input
-          type="range"
+          type='range'
           onChange={(e) => changeRangeHandler(e)}
           min={1}
           max={100}
           step={1}
           value={Number}
           className={styles.bar}
-          id="range"
+          id='range'
         />
 
-        <meter min="0" max="100" className={styles.meterBar} value={Number} />
+        <meter min='0' max='100' className={styles.meterBar} value={Number} />
 
         <ul className={styles.slots}>
           {STEPS.map((value) => (
-            <li
-              key={value}
-              className={Number >= value ? `${styles.activeSlot}` : ""}
-            ></li>
+            <li key={value} className={Number >= value ? `${styles.activeSlot}` : ''} />
           ))}
         </ul>
       </div>
 
       <ul className={styles.steps}>
-        {STEPS.map((value) => (
-          <li key={value} onClick={() => setStepsHanlder(value)}>
-            {value} %
+        {STEPS.map((value, index) => (
+          <li key={`steps-${index}`}>
+            <button type='button' onClick={() => setStepsHanlder(value)}>
+              {value} %
+            </button>
           </li>
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider
