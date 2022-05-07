@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Input.module.scss'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { cx } from '../styles/index'
 
 const REGEX_EMAIL =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -48,10 +49,7 @@ function Input(props) {
             placeholder='E-mail'
             value={Email}
           />
-          <label
-            htmlFor='email'
-            className={BlurEmail && EmailTouched ? `${styles.check} ${styles.checkActive}` : `${styles.check} `}
-          />
+          <label htmlFor='email' className={cx(styles.check, { [styles.checkActive]: BlurEmail && EmailTouched })} />
         </div>
         {!BlurEmail && EmailTouched && (
           <label htmlFor='email' className={styles.error}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Toggle.module.scss'
+import { cx } from '../styles/index'
 
 function Toggle(props) {
   const [value, setValue] = useState(false)
@@ -12,20 +13,10 @@ function Toggle(props) {
     <label className={styles.switch}>
       <input type='checkbox' checked={value} id='toggleSwitch' onChange={clickToggleHandler} />
       <span className={styles.slider} />
-      <label
-        className={
-          !value ? `${styles.textActive} ${styles.textLeft} ${styles.text}` : `${styles.textLeft} ${styles.text}`
-        }
-        htmlFor='toggleSwitch'
-      >
+      <label className={cx(styles.textLeft, styles.text, { [styles.textActive]: !value })} htmlFor='toggleSwitch'>
         기본
       </label>
-      <label
-        className={
-          value ? `${styles.textActive} ${styles.text} ${styles.textRight}` : `${styles.textRight} ${styles.text}`
-        }
-        htmlFor='toggleSwitch'
-      >
+      <label className={cx(styles.textRight, styles.text, { [styles.textActive]: value })} htmlFor='toggleSwitch'>
         상세
       </label>
     </label>

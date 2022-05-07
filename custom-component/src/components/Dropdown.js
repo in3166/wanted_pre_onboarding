@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiFillCaretDown, AiOutlineSearch } from 'react-icons/ai'
 import styles from './Dropdown.module.scss'
+import { cx } from '../styles/index'
 
 const ITEMS = ['All Symbols', 'BTCUSD.PERP', 'ETHUSD.PERP', 'BCHUSD.PERP', '10000DOEF.PERP']
 
@@ -58,7 +59,7 @@ function Dropdown() {
         <AiFillCaretDown />
       </button>
 
-      <ul className={OpenList ? `${styles.list} ${styles.listActive}` : `${styles.list}`}>
+      <ul className={cx(styles.list, { [styles.listActive]: OpenList })}>
         <li className={styles.searchInput}>
           <label htmlFor='search'>
             <AiOutlineSearch size={22} />

@@ -6,7 +6,12 @@ import Dropdown from './Dropdown'
 import Slider from './Slider'
 import { cx } from '../styles/index'
 
-const menuList = [<Toggle />, <Slider />, <Input />, <Dropdown />]
+const menuList = [
+  ['Toggle', <Toggle />],
+  ['Slider', <Slider />],
+  ['Input', <Input />],
+  ['Dropdown', <Dropdown />],
+]
 
 function Tab(props) {
   const [value, setValue] = useState(0)
@@ -25,26 +30,13 @@ function Tab(props) {
       <hr />
       <nav>
         <ul className={styles.tabMenu}>
-          <li className={value === 0 ? `${styles.tabMenuActive}` : ''}>
-            <button type='button' onClick={() => changeTabHandler(0)}>
-              Toggle
-            </button>
-          </li>
-          <li className={value === 1 ? `${styles.tabMenuActive}` : ''}>
-            <button type='button' onClick={() => changeTabHandler(1)}>
-              Slider
-            </button>
-          </li>
-          <li className={value === 2 ? `${styles.tabMenuActive}` : ''}>
-            <button type='button' onClick={() => changeTabHandler(2)}>
-              Input
-            </button>
-          </li>
-          <li className={value === 3 ? `${styles.tabMenuActive}` : ''}>
-            <button type='button' onClick={() => changeTabHandler(3)}>
-              Dropdwon
-            </button>
-          </li>
+          {menuList.map((content, index) => (
+            <li key={`menu-${index}`} className={cx({ [styles.tabMenuActive]: value === index })}>
+              <button type='button' onClick={() => changeTabHandler(index)}>
+                {content[0]}
+              </button>
+            </li>
+          ))}
         </ul>
 
         <div className={styles.slider}>
@@ -57,7 +49,7 @@ function Tab(props) {
             key={`content-${index}`}
             className={cx(styles.tabContents, { [styles.tabContentsHidden]: value !== index })}
           >
-            {content}
+            {content[1]}
           </div>
         ))}
       </article>
