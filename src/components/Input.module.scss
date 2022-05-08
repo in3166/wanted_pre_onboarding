@@ -16,18 +16,18 @@
 
   label {
     font-size: 13px;
-    color: rgb(81, 81, 81);
+    color: colors.$GRAY6;
   }
 
   input {
     min-width: 300px;
     height: 35px;
     padding: 1rem;
-    border: 1px solid rgb(170, 170, 170);
+    border: 1px solid colors.$GRAYA;
     border-radius: 5px;
 
     &:focus {
-      outline: 1px solid rgb(0, 174, 180);
+      outline: 1px solid colors.$TEAL;
     }
   }
 }
@@ -49,10 +49,10 @@
     height: 20px;
     padding-top: 3px;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: colors.$GRAYE;
     text-align: center;
     content: '\2713';
-    background-color: rgb(174, 174, 174);
+    background-color: colors.$GRAYD;
     border-radius: 50%;
   }
 }
@@ -66,7 +66,7 @@
 }
 
 .checkActive::before {
-  background-color: rgb(59, 157, 149);
+  background-color: colors.$TEAL;
 }
 
 input::-ms-reveal,

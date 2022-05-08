@@ -6,7 +6,7 @@ import Dropdown from './Dropdown'
 import Slider from './Slider'
 import { cx } from '../styles/index'
 
-const menuList = [
+const MENU_LISTS = [
   ['Toggle', <Toggle />],
   ['Slider', <Slider />],
   ['Input', <Input />],
@@ -30,10 +30,10 @@ function Tab(props) {
       <hr />
       <nav>
         <ul className={styles.tabMenu}>
-          {menuList.map((content, index) => (
+          {MENU_LISTS.map((menu, index) => (
             <li key={`menu-${index}`} className={cx({ [styles.tabMenuActive]: value === index })}>
               <button type='button' onClick={() => changeTabHandler(index)}>
-                {content[0]}
+                {menu[0]}
               </button>
             </li>
           ))}
@@ -43,13 +43,14 @@ function Tab(props) {
           <div className={styles.indicator} style={SlideStyle} />
         </div>
       </nav>
+
       <article className={styles.contentConatainer}>
-        {menuList.map((content, index) => (
+        {MENU_LISTS.map((menu, index) => (
           <div
             key={`content-${index}`}
             className={cx(styles.tabContents, { [styles.tabContentsHidden]: value !== index })}
           >
-            {content[1]}
+            {menu[1]}
           </div>
         ))}
       </article>
