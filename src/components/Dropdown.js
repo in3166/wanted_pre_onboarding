@@ -73,7 +73,7 @@ function Dropdown() {
           />
         </li>
         {FilteredItems.map((value, index) => (
-          <li key={`itmes-${index}`}>
+          <li key={`itmes-${index + 1}`}>
             <button type='button' className={styles.listButton} onClick={() => selectHandler(value)}>
               {value}
             </button>

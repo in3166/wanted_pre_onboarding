@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Tab.module.scss'
 import Input from './Input'
 import Toggle from './Toggle'
@@ -31,7 +31,7 @@ function Tab(props) {
       <nav>
         <ul className={styles.tabMenu}>
           {MENU_LISTS.map((menu, index) => (
-            <li key={`menu-${index}`} className={cx({ [styles.tabMenuActive]: value === index })}>
+            <li key={`menu-${index + 1}`} className={cx({ [styles.tabMenuActive]: value === index })}>
               <button type='button' onClick={() => changeTabHandler(index)}>
                 {menu[0]}
               </button>
@@ -47,7 +47,7 @@ function Tab(props) {
       <article className={styles.contentConatainer}>
         {MENU_LISTS.map((menu, index) => (
           <div
-            key={`content-${index}`}
+            key={`content-${index + 1}`}
             className={cx(styles.tabContents, { [styles.tabContentsHidden]: value !== index })}
           >
             {menu[1]}

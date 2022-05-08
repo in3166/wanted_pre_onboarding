@@ -1,10 +1,7 @@
 import styles from './TodoList.module.scss'
-import routes from '../Routes.module.scss'
 
 function TodoList() {
-  const handleAddClick = () => {
-      
-  }
+  const handleAddClick = () => {}
   return (
     <div className={styles.todoList}>
       <div className={styles.centering}>

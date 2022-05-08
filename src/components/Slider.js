@@ -41,7 +41,7 @@ function Slider() {
 
       <ul className={styles.steps}>
         {STEPS.map((value, index) => (
-          <li key={`steps-${index}`}>
+          <li key={`steps-${index + 1}`}>
             <button type='button' onClick={() => setStepsHanlder(value)}>
               {value} %
             </button>
