@@ -1,7 +1,9 @@
 @use '/src/styles/constants/colors';
 
 .app {
-  padding: 50px;
+  max-width: 1030px;
+  padding: 60px 50px 0;
+  margin: auto;
   text-align: center;
 }
 
@@ -26,10 +28,6 @@
   color: colors.$WHITE;
   background-color: #282c34;
 }
-
-// @include responsive.after(SD){
-
-// }
 
 .appLink {
   color: colors.$BLUE;
